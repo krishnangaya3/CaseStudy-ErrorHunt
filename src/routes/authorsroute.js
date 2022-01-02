@@ -7,7 +7,18 @@ const authordata = require('../model/AuthorModel');
 
 //router to render authors page
 authorsRouter.get('/',function(req,res){
-
+    //Part 2, point 7. Since I'm using mongo-atlas Edit and Delete are not working so commenting
+    /*
+        authordata.find().then(function (authorsFromDB) {
+            for(let i=0; i<authorsFromDB.length; i++) {
+                authors.push(authorsFromDB[i]);
+            }
+            console.log('inside find',authors);
+            res.render('authors',{
+                authors
+            });
+        });
+    */
     authordata.find() 
     .then(function (authors) {
 
@@ -31,10 +42,10 @@ authorsRouter.get('/addauthor',function(req,res){
 
 //router to add author
 authorsRouter.post('/add', function (req, res) {
-
+    //Part #2, Point 8 
     var item={
         title:req.body.title,
-        image:req.body.images,
+        image:req.body.image,
         about:req.body.about
     }
     console.log(item)  ;
@@ -64,6 +75,7 @@ authorsRouter.get('/:id',function(req,res){
 
 
 //router to delete author
+//Part 2, point 9
 authorsRouter.post('/delete', function (req, res) {
 
     const id = req.body.id;  
@@ -95,6 +107,7 @@ authorsRouter.post('/edit', function (req, res) {
 
 
 //router to update author
+//Part 2, point 9
 authorsRouter.post('/update', function (req, res) {
 
     authordata.findByIdAndUpdate(req.body.id, { $set: req.body }, function (err, data) {

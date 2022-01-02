@@ -3,6 +3,7 @@ const bodyParser = require('body-parser'); //Part #1, Point 2
 const path = require ('path'); 
 const cors = require('cors');
 
+//Part #2, Point 6
 const nav= [
     {
         link:"/books",
@@ -58,5 +59,5 @@ app.get('/',function(req,res){
 
 
 app.listen(5000,()=>{
-    console.log("Server Ready on 3000");
+    console.log("Server Ready on 5000");//Part #1, point 1
 });

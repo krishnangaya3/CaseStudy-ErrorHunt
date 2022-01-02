@@ -1,4 +1,4 @@
-var mail=document.getElementById("mail");
+var mail=document.getElementById("uid");
 var fb=document.getElementById("feedback");
 
 var pw=document.getElementById("pwd");
@@ -17,7 +17,7 @@ function validate(){
         fb.style.color="green";
         fb.style.visibility-"visible";
 
-    
+        
         if(myPwd.trim().length>=8)
         {
             fb2.innerHTML="Valid password";
